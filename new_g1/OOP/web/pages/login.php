@@ -2,9 +2,12 @@
 session_start();
 if(!isset($_SESSION['signin'])){
 	$_SESSION['userlogin'] = "";
-	// header("Location: ../index.php");
+	 header("Location: ../index.php");
 }
 require_once('config.php');
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -158,38 +161,14 @@ require_once('config.php');
                 <option  value="student">Student</option>
             </select>
 
-             <!-- <div class="forcheckbox text-secondary">
-            <label for="role" class="m-0">Select Role</label>
-            		<input type="checkbox" name="teacher" >Teacher
-            		<input type="checkbox" name="student" >Student
-            		<input type="checkbox" name="staff" >Staff
-            		<input type="checkbox" name="admin" >Admin -->
-            		<!-- <label>Select Role </label>
-
-            			<label>
-					    <input type="checkbox" id="role1" name="role[]" value="teacher"> Teacher
-					</label>
-
-					<label>    
-					    <input type="checkbox" id="role2" name="role[]" value="student"> Student
-					</label>
-
-					<label>
-					    <input type="checkbox" id="role3" name="role[]" value="staff"> Staff
-					</label>
-
-					<label>
-					    <input type="checkbox" id="role4" name="role[]" value="admin"> Admin
-					</label> -->
-	
-            	
-            <!-- </div> -->
+            
 			<button id="signup">Sign Up</button>
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
-		<form action="config.php" method="post">
-			<!-- <form action="test.php" method="GET"> -->
+		
+		<form action="signup.php" method="GET">
+			
 			<h1 class="mt-5">LOGIN</h1>
 			<div class="social-container">
 				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -197,29 +176,22 @@ require_once('config.php');
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
 			<span>or use your account</span>
-			<!-- <input type="email" placeholder="Email" /> -->
+		
+			<?php if(isset($_GET['check'])&&($_GET['check']==false)) {?>
+				<span class="text-danger">invalid email or password</span>
+			<?php } ?>
 			 
-    		 <input type="text" name="name" id="name"  class="inputField " placeholder="Name" />
+    		 <input type="text" name="email" id="email"  class="inputField " placeholder="Email" />
+			
 
 			<input type="password" name="password" id="password" placeholder="Password" class="inputField" />
 
 			
 				
-			<!-- <select name="role" id="role" class="inputField text-secondary ">
-				<option selected disabled>Select Role</option>
-           		 <option  value="teacher">Teacher</option>
-                <option  value="student">Student</option>
-                <option  value="staff">Staff</option>
-                 <option  value="admin">Admin</option>
-                
-            </select> -->
+			
 
              <div class="forcheckbox text-secondary">
-            <!-- <label for="role" class="m-0">Select Role</label>
-            		<input type="checkbox" name="teacher" >Teacher
-            		<input type="checkbox" name="student" >Student
-            		<input type="checkbox" name="staff" >Staff
-            		<input type="checkbox" name="admin" >Admin -->
+          
             		<label>Select Role </label>
 
             			<label>
@@ -345,7 +317,7 @@ require_once('config.php');
 <!--custom jquery js -->
 <script src="../js/app.js" type="text/javascript"></script>
 
-<script>
+<!-- <script>
 $(function(){
     $('#signin').click(function(e){
 
@@ -403,7 +375,8 @@ $(function(){
     });
 });
 
-</script>
+</script> -->
+
 </body>
 </html>
 

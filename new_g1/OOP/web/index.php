@@ -1,7 +1,7 @@
 <?php
 	session_start();
-	if(!isset($_SESSION['signin'])){
-		 // header("Location: pages/login.php");
+	if((!isset($_SESSION['signin'])) && ($_GET['check']!=true)){
+		  header("Location: pages/login.php");
 	}
 ?>
 <!DOCTYPE html>

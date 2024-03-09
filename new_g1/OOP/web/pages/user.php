@@ -100,5 +100,24 @@
             var_dump($results);
             return true;
         }
+
+        public static function checkBymailandPsw($email,$password){
+            $query = "SELECT * FROM ". User::$table . " where email = '$email' AND password = '$password' Limit 1;";
+            $db = new DBConnection();
+            $conn = $db->getConnection();
+            $results = $conn->query($query);
+            $row = mysqli_fetch_object($results);
+            $user = null;
+            if(isset($row)){
+                $user = new User();
+                $user->name = $row->name;
+                $user-> email = $row->email;
+                $user->password = $row->password;
+                $user->gender = $row->gender;
+                $user->role = $row->role;
+                $users[] = $user;
+            }
+            return $user;
+        }
     }
 ?>
