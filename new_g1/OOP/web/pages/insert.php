@@ -7,8 +7,8 @@ echo'this is insert.php';
 		 $email 	= $_POST['email'];
 		 $password 	= $_POST['password'];
 		 $gender 	= $_POST['gender'];
-		//  $role 		= $_POST['role'];
-		 $RoleArr = explode(',', $_POST['role']);
+		  $role 		= $_POST['role'];
+		//  $RoleArr = explode(',', $_POST['role']);
 
 		 echo "this is role";
 		 var_dump($role);
@@ -19,7 +19,8 @@ echo'this is insert.php';
 		 $result = $stmtinsert->execute([$name,$email,$password,$gender,$role]);
 		 echo"$result";
 		 if($result){
-			// header("Location: userlist.php?changelogin=true");
+			header("Location: userlist.php?changelogin=true&rolefromsignup=true");
+				
 		 }else{
 			echo "there were errors";
 		 }

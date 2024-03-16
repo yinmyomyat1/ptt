@@ -2,7 +2,7 @@
 session_start();
 if(!isset($_SESSION['signin'])){
 	$_SESSION['userlogin'] = "";
-	 header("Location: ../index.php");
+	//  header("Location: ../index.php");
 }
 require_once('config.php');
 

@@ -66,7 +66,8 @@
 								            <li><a class="dropdown-item " href="#">PHP</a></li>
 								          </ul>
 								        </li>
-
+																		
+							
 								        <li class="nav-item  ">
 								          <a class="nav-link active" href="userlist.php">User List</a>
 								        </li>
@@ -83,14 +84,11 @@
 								           		 foreach($users as $u){
 								           		 	$id=$u->id;
 								           		 }
-								           		// echo($id);
+								           		
 
 								            ?>
 
-								         <!-- Hehe -->
-								         <!-- <div class="circle-container"> -->
-										    <!-- <div class="circle-image" style="background-image: url('../image/fe.jpg')"></div> -->
-										<!-- </div> -->
+								      
 
 										<a href="profile.php?id=<?= $id ?>" class="circle-container"><img src="../image/fe.jpg"></a>
 
@@ -166,17 +164,109 @@
         </div>
         
         	<div class=" mt-3 dashR ">
+				
             
            <div class="m-3 text-secondary">	<span>Home/User List</span> </div>
            <hr>
+
+		   <h2 class="text-center mt-5">User Lists</h2>
+		   
            <?php 
 
 			// var_dump($_GET['changelogin']);
- 		?>
+			// var_dump($_REQUEST['rolefromsignup']);
+			$rolefromsignup = $_REQUEST['rolefromsignup']??'';
+			$role = $_REQUEST['role']??'';
 
-           <h2 class="text-center mt-5">User Lists</h2>
+			if( $rolefromsignup || (($role=='teacher')||$role=='student')){
+				$TSusers = User::getTeacherStudent($users);
+			
+				?>
 
-           <div class="d-flex justify-content-center align-item-center">
+<div class="d-flex justify-content-center align-item-center">
+	           <table border="1" cellspacing="2" cellpadding="2" class="text-center m-5 usertb">
+	          		<tr>
+	          			<th>ID</th>
+	          			<th>Name</th>
+	          			<th>Email</th>
+	          			<th>Password</th>
+	          			<th>Gender</th>
+	          			<th>Role</th>
+	          			
+	          		</tr>
+
+<?php foreach($TSusers as $u): ?>
+    <tr>  
+        <td><?=$u->id?></td>
+        <td><?=$u->name?></td>
+        <td><?=$u->email?></td>
+		<td><?=$u->password?></td>
+		<td><?=$u->gender?></td>
+		<td>
+			<?php
+				if($u->role=='teacher' || $u->role== 'student'){?>
+				<?=$u->role?>
+
+				<?php } ?>
+		
+		
+	
+	
+		</td>
+       
+    </tr>
+<?php endforeach; ?>
+
+</table>
+
+           </div>
+
+				
+			<?php }else if( $role=='staff'){
+				$TSusers = User::getTeacherStudentStaff($users);
+			
+				?>
+
+<div class="d-flex justify-content-center align-item-center">
+	           <table border="1" cellspacing="2" cellpadding="2" class="text-center m-5 usertb">
+	          		<tr>
+	          			<th>ID</th>
+	          			<th>Name</th>
+	          			<th>Email</th>
+	          			<th>Password</th>
+	          			<th>Gender</th>
+	          			<th>Role</th>
+						<th>Action</th>
+	          			
+	          		</tr>
+
+<?php foreach($TSusers as $u): ?>
+    <tr>  
+        <td><?=$u->id?></td>
+        <td><?=$u->name?></td>
+        <td><?=$u->email?></td>
+		<td><?=$u->password?></td>
+		<td><?=$u->gender?></td>
+		<td>
+			<?php
+				if($u->role=='teacher' || $u->role== 'student'){?>
+				<?=$u->role?>
+
+				<?php } ?>
+		</td>
+		<td><a href="Edit.php?id=<?=$u->id?>">Update</a></td>
+       
+    </tr>
+<?php endforeach; ?>
+
+</table>
+
+           </div>
+
+				
+			<?php }else{?>
+
+<div class="d-flex justify-content-center align-item-center">
 	           <table border="1" cellspacing="2" cellpadding="2" class="text-center m-5 usertb">
 	          		<tr>
 	          			<th>ID</th>
@@ -196,6 +286,7 @@
 		<td><?=$u->password?></td>
 		<td><?=$u->gender?></td>
 		<td><?=$u->role?></td>
+		 <!-- <td><?=$u->getRoleName()?></td> -->
         <td><a href="CRUD.php?id=<?=$u->id?>">Delete</a></td>
         <td><a href="Edit.php?id=<?=$u->id?>">Update</a></td>
     </tr>
@@ -204,6 +295,14 @@
 </table>
 
            </div>
+				
+
+		<?php	}
+ 		?>
+
+          
+
+          
 
         </div>
 
@@ -296,7 +395,6 @@
 
 <!--custom jquery js -->
 <script src="../js/app.js" type="text/javascript"></script>
-
 
 
 

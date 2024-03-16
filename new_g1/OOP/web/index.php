@@ -1,9 +1,14 @@
 <?php
 	session_start();
 	if((!isset($_SESSION['signin'])) && ($_GET['check']!=true)){
-		  header("Location: pages/login.php");
+		//  header("Location: pages/login.php");
 	}
+	// require_once("../pages/user.php");
+    // $users = User::getAll();
+    // $id = '';
 ?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -77,9 +82,27 @@
 								         <li class="nav-item ">
 								          <a class="nav-link " href="#">Contact Us</a>
 								        </li>
+										
+										<?php if(isset($_REQUEST['check'])){ ?> 
+											<?php if (isset($_GET)) { 
+								           		 foreach($users as $u){
+								           		 	$id=$u->id;
+								           		 }}
+								           		
+
+								            ?>
+											
+											<li class="nav-item d-flex circular-picture">
+											<a href="pages/profile.php?id=<?= $id ?>" class="circle-container"><img src="image/fe.jpg"></a>
+
+											</li>
+											<?php }else{?>
 								         <li class="nav-item d-flex">
 								          <i class="fa-solid fa-circle-user mt-4"></i><a class="nav-link active" href="pages/login.php">Login</a>
 								        </li>
+										<?php } ?>
+									
+										
 								      </ul>
 								    </div>
  
