@@ -1,0 +1,199 @@
+﻿/*body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.container {
+   
+    width: 1600px;
+    background-image: url(../images/pf.jpg);
+    background-repeat: no-repeat;
+}*/
+
+h1{
+  
+    text-align:center;
+    
+    border:2px dashed black;
+
+    padding:10px 0;
+}
+
+.mark {
+    /* background-color: aqua;
+    height: 100px;*/
+    padding: 60px 90px;
+    display: flex;
+    font-size:20px;
+}
+
+.mbgpic {
+   background-image: url(../images/b2.jpg);
+    background-size: cover;
+}
+
+.bgblur {
+    /* background-image: linear-gradient(rgba(247, 82, 225,0.4), rgba(78, 182, 242,0.4)), url(../images/5.jpg);  245, 37, 182*/
+
+    width: 100%;
+    /* background: linear-gradient(rgba(245, 93, 220,0.5), rgba(78, 182, 242,0.5) );*/
+    background: linear-gradient(rgba( 250, 87, 228,0.3), rgba(78, 182, 242,0.2) );
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+input {
+    margin-top: 10px;
+    background: none;
+    border: 1px solid black;
+    padding: 10px 20px;
+    border-radius: 15px;
+    margin-right: 20px;
+   
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-size: 12px;
+    border: 1px solid black;
+    background: linear-gradient(rgba(245, 44, 238,0.2), rgba(78, 182, 242,0.6) );
+}
+
+    button:hover {
+        background: linear-gradient(rgba(143, 33, 235,0.2), rgba(143, 33, 235,0.3) );
+    }
+
+/*mark*/
+
+.mark #demo {
+    padding: 10px 50px;
+    height: 100px;
+    background: linear-gradient(rgba(66, 242, 245,0.3), rgba(66, 242, 245,0.2) );
+    line-height: 100px;
+    margin-left: 30px;
+    border-radius: 15px;
+    border: 1px solid darkblue;
+    display: none;
+}
+
+#pic {
+    
+    width: 250px;
+     height: 250px;
+    background-color: blueviolet;
+    margin-left: 80px;
+    padding-top: 0;
+    /* background-image:url(../images/m1.jpg);*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: none;
+}
+
+    /*temp*/
+
+.temp {
+    /* background-color: burlywood;*/
+
+    padding: 70px 50px;
+    display: flex;
+}
+
+    .temp label {
+        display: inline-block;
+        width: 30px;
+        font-size: 15px;
+        margin-left: 30px;
+    }
+
+.temp input{
+    margin-left:15px;
+}
+
+    .temp button {
+
+        margin-top:10px;
+        margin-left:200px;
+        
+    }
+
+#demotemp {
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 50px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    border-radius: 15px;
+    background: linear-gradient(rgba(66, 242, 245,0.3), rgba(66, 242, 245,0.2) );
+    border: 1px solid darkblue;
+    display: none;
+}
+
+
+
+
+
+#pic2 {
+    width: 250px;
+    height: 250px;
+    background-color: blueviolet;
+    margin-top: 60px;
+    margin-left: 20px;
+    padding-top: 0;
+    /* background-image:url(../images/m1.jpg);*/
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    display:none;
+}
+
+/*Age and Month */
+
+.dage {
+    /*display: flex;
+    background-color: fuchsia;*/
+    padding: 60px;
+}
+    .dage input {
+        margin-left: 15px;
+    }
+
+    .dage .btwo {
+        margin-top:20px;
+        margin-left: 50px;
+    }
+
+.dage #AgeMonth{
+    display:flex;
+
+}
+#demoAgeMonth {
+    margin-left: 10px;
+    padding: 5px 10px;
+    height: 100px;
+    font-size: 13px;
+    line-height: 100px;
+    border-radius: 15px;
+    background: linear-gradient(rgba(66, 242, 245,0.3), rgba(66, 242, 245,0.2) );
+    border: 1px solid darkblue;
+    display: none;
+}
+
+#pic1 {
+    width: 250px;
+    height: 250px;
+    background-color: blueviolet;
+    margin-left: 80px;
+    padding-top: 0;
+    /* background-image:url(../images/m1.jpg);*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: none;
+}
