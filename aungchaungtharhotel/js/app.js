@@ -1,224 +1,251 @@
-// Start jQuery Area
 $(document).ready(function(){
 
-	// Start Room Section
-	$(".roompopup").magnificPopup({
-		type: 'image'
-	});
-	// End Room Section
-
+  $('.roompopup').magnificPopup({
+    type: 'image'
+    // other options
+  });
+  
 });
 
-// End jQuery Area
 
-
-// Start JS Area
 
 // Start Header
+  // start navbar
+    
+    function dropbtn(e){
+    	// console.log('hi');
+    	// document.getElementById('mydropdown').classList.toggle('show');
 
-// start nav bar
-function dropbtn(e){
-	// document.getElementById("mydropdown").classList.toggle('show');
+      e.target.nextElementSibling.classList.toggle('show');
+    }
 
-	e.target.nextElementSibling.classList.toggle('show');
-}
+    function dropfilter(){
+    	var getsearch,filter,getdropdiv,getlinks,linkvalue;
 
-function dropfilter(){
-	var getsearch,filter,getdropdiv,getlinks,linkvalue;
+    	getsearch = document.getElementById('search');
+    	filter = getsearch.value.toUpperCase();
+    	// getdropdiv = document.getElementById('mydropdown');
 
-	getsearch = document.getElementById('search');
-	filter = getsearch.value.toUpperCase();
-	// getdropdiv = document.getElementById("mydropdown");
-	// getlinks = getdropdiv.querySelectorAll('a')
+    	getlinks = document.querySelectorAll('.mydropdowns a');
 
-	getlinks = document.querySelectorAll(".dropdowns a");
+    	// console.log(getlinks);
+    	for(var x = 0; x < getlinks.length ; x++){
+    		// console.log(getlinks[x])
+    		linkvalue = getlinks[x].textContent;
+    		// console.log(linkvalue);
 
-	for(var x=0; x < getlinks.length ; x++){
-		linkvalue = getlinks[x].textContent || getlinks[x].innerText;
-
-		if(linkvalue.toUpperCase().indexOf(filter) > -1){
-			getlinks[x].style.display = "block";
-		}else{
-			getlinks[x].style.display = "none";
-		}
-	}
-}
-// end navbar
+    		if(linkvalue.toUpperCase().indexOf(filter) > -1){
+    			getlinks[x].style.display = "";
+    		}else{
+    			getlinks[x].style.display = "none";
+    		}
+    	}
 
 
 
-// start auto background
+    }
+  // end navbar
 
-function* genfun(){
-	var index = 8;
+  // start auto background
 
-	while(true){
-		yield index++;
+  function* genfun(){
+  	var idx = 8;
 
-		if(index > 13){
-			index = 8;
-		}
-	}
-}
+  	while(true){
+  		yield idx++;
 
-var getgen = genfun();
+  		if(idx > 13){
+  			idx = 8
+  		}
+  	}
+  }
 
-var getheader = document.querySelector('header');
-getheader.style.backgroundImage = `url(./assets/img/banner/banner${getgen.next().value}.jpg)`;
+  var getgen = genfun();
+  // console.log(getgen.next().value);
+  var getheader = document.querySelector('header');
+  getheader.style.backgroundImage = `url("./assets/img/banner/banner8.jpg")`;
 
-function autoload(){
-	getheader.style.backgroundImage = `url(./assets/img/banner/banner${getgen.next().value}.jpg)`;
-}
+  function autoload(){
+  	getheader.style.backgroundImage = `url("./assets/img/banner/banner${getgen.next().value}.jpg")`;
+  }
 
-setInterval(autoload,2500);
-
-// end auto background
-
+  setInterval(autoload,2000);
+  // end auto background
 // End Header
 
-
-// Start Testimonials Section
-
+// Start Testimonial Section
 const getcompanyname = document.querySelector('.companyname');
 const getrole = document.querySelector('.role');
 const gettestimonial = document.querySelector('.testimonial');
 
-const testimonialdatas = [
-	{
-		name: "Rich Star Restaurant",
-		position: "Our Outlet",
-		text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text everLorem Ipsum is simply dummy text of the printing and typesetting industry."
-	},
-	{
-		name: "48 Sky Bar Cafe",
-		position: "Our Partner",
-		text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text everLorem Ipsum is simply dummy text of the printing and typesetting industry."
-	},
-	{
-		name: "52 Beach Hotel",
-		position: "Our Branch",
-		text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text everLorem Ipsum is simply dummy text of the printing and typesetting industry."
-	},
-	{
-		name: "Cool Land Swimming Pool",
-		position: "Our Client",
-		text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text everLorem Ipsum is simply dummy text of the printing and typesetting industry."
-	},
-	{
-		name: "Chaung Thar SPA",
-		position: "Our Business",
-		text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text everLorem Ipsum is simply dummy text of the printing and typesetting industry."
-	}
+const testimonialdata = [
+{
+  name: "Rich Star Restaurant",
+  position: "Our Ourlet",
+  text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+},
+
+{
+  name: "48 Sky Bar Cafe",
+  position: "Our Partner",
+  text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+},
+
+{
+  name: "52 Beach Hotel",
+  position: "Our Branch",
+  text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+},
+
+{
+  name: "Cool Land Swinning Pool",
+  position: "Our Client",
+  text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+},
+
+{
+  name: "Chaung Thar Spa",
+  position: "Our Businness",
+  text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+}
 ];
+
+// console.log(testimonialdata);
 
 let idx = 0;
 
-function updatetesetimonial(){
+function updatetestimonial(){
 
-	// getcompanyname.textContent = testimonialdatas[idx].name;
-	// getrole.textContent = testimonialdatas[idx].position;
-	// gettestimonial.textContent = testimonialdatas[idx].text;
+  
+  const {name,position,text} = testimonialdata[idx];
+  // console.log(name);
 
-	const {name,position,text} = testimonialdatas[idx];
-	
-	getcompanyname.textContent = name;
-	getrole.textContent = position;
-	gettestimonial.textContent = text;
+  getcompanyname.textContent = name;
+  getrole.textContent = position;
+  gettestimonial.textContent = text;
 
-	idx++;
 
-	if(idx > testimonialdatas.length-1){
-		idx = 0;
-	}
+  idx++;
+
+  if(idx > testimonialdata.length - 1){
+    idx = 0;
+  }
 
 }
 
-updatetesetimonial();
-setInterval(updatetesetimonial,10000);
+updatetestimonial();
 
-// End Testimonials Section
+setInterval(updatetestimonial,10000);
+// End Testimonial Section
 
-
-
-
-// Start Properties Section
-
-var getfilters = document.getElementsByClassName('filters');
-
+// Start Property Section
 filterby('all');
-
 function filterby(keyword){
 
+  var getfilters = document.getElementsByClassName('filters');
+  // console.log(getfilters);
 
-	if(keyword === 'all'){
 
-	}
+  if(keyword === 'all'){
+    
+    keyword = '';
+     
+  }
 
-	for(var x=0; x<getfilters.length; x++){
 
-		removeshowclass(getfilters[x],'show');
 
-		if(getfilters[x].className.indexOf(keyword) > -1){
-			addshowclass(getfilters[x],'show');
-		}
+  for(var x = 0; x < getfilters.length; x++){
+    // console.log(getfilters[x])
+    // console.log(getfilters[x].className.indexOf(keyword) > -1);
+    removeshowclass(getfilters[x],'show');
 
-	}
+    if(getfilters[x].className.indexOf(keyword) > -1){
+      addshowclass(getfilters[x],'show');
+    }
+
+  }
 
 }
 
 function addshowclass(ele,opt){
-	var getfilters = ele.className.split(" ");
-	var getopt = opt.split(" ");
+  // console.log(ele);
+  var getfilters = ele.className.split(" ");
+  // console.log(getfilters);
 
-	for(var y=0; y<getopt.length; y++){
+  var getopt = opt.split(" ");
+  // console.log(getopt);
 
-		if(getfilters.indexOf(getopt[y]) === -1){
-			ele.className += " "+getopt[y];
-		}
+  for(var y = 0; y < getopt.length ; y++){
+    // console.log(getopt[y]);
 
-	}
+    if(getfilters.indexOf(getopt[y]) === -1){
+      // ele.classList.add(getopt[y]);
+      ele.className += " "+getopt[y];
+    }
+  }
+
+
 }
 
 function removeshowclass(ele,opt){
-	// console.log(ele);
+  // console.log(ele);
+  // console.log(ele.classList.contains('show'));
+  var getfilters = ele.className.split(' ');
+  var getopt = opt.split(' ');
 
-	var getfilters = ele.className.split(' ');
-	// console.log(getfilters);
+  for(var k = 0; k < getfilters.length; k++){
+    while(getfilters.indexOf(getopt[k]) > -1){
+      getfilters.splice(getfilters.indexOf(getopt[k]),1);
+    }
+  }
 
-	var getopt = opt.split(' ');
-	// console.log(getopt);
-	// console.log(getopt.length);
+  ele.className = getfilters.join(' ');
 
-	for(var k=0; k<getfilters.length; k++){
-
-		while(getfilters.indexOf(getopt[k]) > -1){
-			getfilters.splice(getfilters.indexOf(getopt[k]),1)
-		}
-
-	}
-
-	ele.className = getfilters.join(' ');
 }
 
-var getftcontrol = document.getElementById("filtercontrol");
+var getftcontrol = document.getElementById('filtercontrol');
 var getlis = getftcontrol.getElementsByClassName('list-inline-item');
 
-for(var i=0; i<getlis.length; i++){
+for(var i=0; i < getlis.length; i++){
+  getlis[i].addEventListener('click',function(){
+    var curractives = document.querySelector('.activeitems');
+  curractives.className = curractives.className.replace(' activeitems',' ');
+  this.className += ' activeitems';
+});
+}
+// End Property Section
 
-	getlis[i].addEventListener('click',function(){
-		var curractives = document.querySelector('.activeitems');
-		curractives.className = curractives.className.replace(' activeitems','');
-		this.className += ' activeitems';
-	});
+// Start Contact Section
+function tabbox(link,evn,btncolor){
+
+  var gettabcontents = document.getElementsByClassName('tabcontents');
+  var getbtntabs = document.getElementsByClassName('btn-tabs');
+
+  // console.log(gettabcontents);
+  for(var i=0; i < gettabcontents.length; i++){
+    gettabcontents[i].style.display = 'none';
+
+    getbtntabs[i].style.backgroundColor = '';
+
+  }
+  
+  document.getElementById(link).style.display = 'block';
+  evn.style.backgroundColor = btncolor;
 
 }
 
-// End Properties Section
+document.getElementById('autoclick').click();
+// End Contact Section
+
+// Start Chat Box Section
+const getmychat = document.getElementById('mychat');
 
 
+function openchat(){
+  getmychat.style.display = 'block';
+}
 
-
-// End JS Area
-
-
-// 1RM
+function closechatbox(){
+  getmychat.style.display = 'none';
+}
+// End Chat Box Section
